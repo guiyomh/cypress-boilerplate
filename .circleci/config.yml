@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+    #working_directory: ~/
+    docker: 
+      - image: node:lts 
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm
+          command: npm run setup
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: 
+          name: test
+          command: npm run test:unit
+      - run: 
+          name: code-coverage
+          command: |
+            ./node_modules/.bin/codecov -f ./coverage/lcov.info 
+      - store_artifacts:
+          path: coverage
+          prefix: coverage

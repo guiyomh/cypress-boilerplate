@@ -1,3 +1,5 @@
 node_modules
 cypress/reports/*
 !cypress/reports/.gitkeep
+cypress/snapshots
+coverage

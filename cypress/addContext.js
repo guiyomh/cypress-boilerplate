@@ -15,13 +15,12 @@
 const escapeRegExp = text => text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 
 const addContext = (report, screenshots, videoUrl) => {
-  const getTests = t => t.tests;
-  const getSuites = t => t.suites;
+  const getTests = t => t.tests || [];
+  const getSuites = t => t.suites || [];
 
   const addSuiteContext = (suite, previousTitles = []) => {
     const titles = suite.title ? previousTitles.concat(suite.title) : previousTitles;
     getTests(suite).forEach((test) => {
-      test.timedOut = false; // for some reason this is dropped
       const context = [];
       if (videoUrl) {
         context.splice(0, 0, {
@@ -34,7 +33,6 @@ const addContext = (report, screenshots, videoUrl) => {
         .concat(test.title)
         .join(' -- ')
         .replace(/,/g, '');
-
       const testScreenshots = screenshots.filter(s => s.includes(testFileName));
       testScreenshots.forEach((screenshot) => {
         // There could be multiple screenshots for various reasons.
@@ -46,12 +44,12 @@ const addContext = (report, screenshots, videoUrl) => {
           });
         } else {
           context.splice(0, 0, {
-            // title: screenshot.match(`${escapeRegExp(testFileName)}(.+).png`)[1].replace(' -- ', ''),
-            title: testFileName,
+            title: screenshot.match(`${escapeRegExp(testFileName)}(.+).png`)[1].replace(' -- ', '').trim(),
             value: screenshot,
           });
         }
       });
+      // eslint-disable-next-line no-param-reassign
       test.context = JSON.stringify(context);
     });
 

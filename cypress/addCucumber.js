@@ -1,5 +1,4 @@
 const fs = require('fs-extra');
-// eslint-disable-next-line import/no-extraneous-dependencies
 const { Parser } = require('gherkin');
 
 const parseFile = file => new Parser().parse(fs.readFileSync(file).toString());
@@ -17,7 +16,7 @@ const findScenario = (gherkin, name) => {
 const formatSteps = (steps) => {
   let scenario = '';
   steps.forEach((step) => {
-    scenario += `${step.keyword} ${step.text}\n`;
+    scenario += `${step.keyword.trim()} ${step.text.trim()}\n`;
   });
   return scenario;
 };
@@ -34,6 +33,7 @@ const addCucumber = (r) => {
       result.suites.forEach((suite) => {
         suite.tests.forEach((test) => {
           const scenario = findScenario(gherkinAst, test.title);
+          // eslint-disable-next-line no-param-reassign
           test.code = formatSteps(scenario.steps);
         });
       });

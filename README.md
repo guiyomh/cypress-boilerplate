@@ -13,6 +13,9 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
+[![CircleCI](https://circleci.com/gh/guiyomh/cypress-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/guiyomh/cypress-boilerplate/tree/master) 
+[![Build Status](https://travis-ci.org/guiyomh/cypress-boilerplate.svg?branch=master)](https://travis-ci.org/guiyomh/cypress-boilerplate)
+[![codecov](https://codecov.io/gh/guiyomh/cypress-boilerplate/branch/master/graph/badge.svg)](https://codecov.io/gh/guiyomh/cypress-boilerplate)
 
 # Cypress-boilerplate
 

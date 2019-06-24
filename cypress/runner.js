@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Copyright 2019 Guillaume Camus
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,7 +21,6 @@ const {
 const {
   flatMap,
   map,
-  filter,
   toArray,
   retry,
   catchError,

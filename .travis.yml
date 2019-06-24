@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+  - '10'
+
+install: npm run setup
+
+cache:
+  npm: true
+  directories:
+    - '.eslintcache'
+    - 'node_modules'
+
+script:
+  - npm run test:unit
+
+after_script:
+  - ./node_modules/.bin/codecov -f ./coverage/lcov.info 

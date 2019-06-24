@@ -2,11 +2,13 @@ module.exports = {
   "plugins": [
     "cypress",
     "chai-friendly",
+    "jest",
   ],
   "env": {
     "browser": true,
     "es6": true,
-    "cypress/globals": true
+    "cypress/globals": true,
+    "jest/globals": true,
   },
   "extends": [
     "airbnb-base",
