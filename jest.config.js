@@ -10,6 +10,7 @@ module.exports = {
     '/cypress/integration/',
     '/cypress/reports/',
     '/cypress/fixtures/',
+    '/cypress/mock/',
   ],
   collectCoverageFrom: ['<rootDir>/cypress/**'],
   coverageReporters: ['lcov', 'text-summary'],

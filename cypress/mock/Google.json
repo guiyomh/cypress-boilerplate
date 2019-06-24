@@ -1,0 +1,135 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2019-06-24T09:52:19.671Z",
+    "end": "2019-06-24T09:53:09.497Z",
+    "duration": 49826,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "475e234f-639f-4e50-b505-daa60b05c29e",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c1e34378-114b-4e09-8e86-d2dc4b355d73",
+          "title": "The search engine",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Opening a search engine page",
+              "fullTitle": "The search engine Opening a search engine page",
+              "timedOut": null,
+              "duration": 1611,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (backgroundSection) {\n  backgroundSection.steps.forEach(step => stepTest.call(this, step));\n}\nscenario.steps.forEach(step => stepTest.call(this, step));",
+              "err": {},
+              "uuid": "9fbcfd3a-d436-4197-a660-0d16ef2a25f9",
+              "parentUUID": "c1e34378-114b-4e09-8e86-d2dc4b355d73",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "I search the term cypress in google",
+              "fullTitle": "The search engine I search the term cypress in google",
+              "timedOut": null,
+              "duration": 46536,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "if (backgroundSection) {\n  backgroundSection.steps.forEach(step => stepTest.call(this, step));\n}\nscenario.steps.forEach(step => stepTest.call(this, step));",
+              "err": {
+                "message": "CypressError: Timed out retrying: expected 'https://www.google.com/search?source=hp&ei=Vp0QXZXDO5KwacXGoaAD&q=cypress.io&btnI=J%27ai+de+la+chance&oq=cypress.io&gs_l=psy-ab.3..0l7j0i30l3.953.1129..1279...0.0..0.88.445.7......0....1..gws-wiz.....0..0i131.jp8dXdMa7-0' to include 'End to End'",
+                "estack": "CypressError: Timed out retrying: expected 'https://www.google.com/search?source=hp&ei=Vp0QXZXDO5KwacXGoaAD&q=cypress.io&btnI=J%27ai+de+la+chance&oq=cypress.io&gs_l=psy-ab.3..0l7j0i30l3.953.1129..1279...0.0..0.88.445.7......0....1..gws-wiz.....0..0i131.jp8dXdMa7-0' to include 'End to End'\n    at Object.cypressErr (https://www.google.com/__cypress/runner/cypress_runner.js:83220:11)\n    at Object.throwErr (https://www.google.com/__cypress/runner/cypress_runner.js:83185:18)\n    at Object.throwErrByPath (https://www.google.com/__cypress/runner/cypress_runner.js:83212:17)\n    at retry (https://www.google.com/__cypress/runner/cypress_runner.js:76640:16)\n    at https://www.google.com/__cypress/runner/cypress_runner.js:68612:18\n    at tryCatcher (https://www.google.com/__cypress/runner/cypress_runner.js:132142:23)\n    at Promise._settlePromiseFromHandler (https://www.google.com/__cypress/runner/cypress_runner.js:130160:31)\n    at Promise._settlePromise (https://www.google.com/__cypress/runner/cypress_runner.js:130217:18)\n    at Promise._settlePromise0 (https://www.google.com/__cypress/runner/cypress_runner.js:130262:10)\n    at Promise._settlePromises (https://www.google.com/__cypress/runner/cypress_runner.js:130337:18)\n    at Async._drainQueue (https://www.google.com/__cypress/runner/cypress_runner.js:127066:16)\n    at Async._drainQueues (https://www.google.com/__cypress/runner/cypress_runner.js:127076:10)\n    at Async.drainQueues (https://www.google.com/__cypress/runner/cypress_runner.js:126950:14)",
+                "diff": null
+              },
+              "uuid": "79217d6d-3284-4201-933a-4f297370417f",
+              "parentUUID": "c1e34378-114b-4e09-8e86-d2dc4b355d73",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9fbcfd3a-d436-4197-a660-0d16ef2a25f9"
+          ],
+          "failures": [
+            "79217d6d-3284-4201-933a-4f297370417f"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 48147,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.1.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Google.feature",
+        "saveHtml": false,
+        "saveJson": true,
+        "useInlineDiffs": false
+      },
+      "version": "4.0.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "./cypress/reports",
+        "reportFilename": "Google.feature",
+        "reportTitle": "Google.feature",
+        "reportPageTitle": "Google.feature",
+        "overwrite": true,
+        "showPassed": false,
+        "showFailed": true,
+        "enableCode": true,
+        "inline": true,
+        "html": false,
+        "json": true
+      },
+      "version": "4.0.0"
+    }
+  }
+}

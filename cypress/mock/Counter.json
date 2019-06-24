@@ -1,0 +1,130 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-06-24T09:52:19.909Z",
+    "end": "2019-06-24T09:52:20.095Z",
+    "duration": 186,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a451ea89-020e-4bf8-9b0d-826fd0d6c886",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5dbd2897-c5e6-4604-91b6-cd0853612de0",
+          "title": "Background Section",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Basic example #1",
+              "fullTitle": "Background Section Basic example #1",
+              "timedOut": null,
+              "duration": 99,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (backgroundSection) {\n  backgroundSection.steps.forEach(step => stepTest.call(this, step));\n}\nscenario.steps.forEach(step => stepTest.call(this, step));",
+              "err": {},
+              "uuid": "2ee9b7e4-d00d-4530-b342-4a23fa6a547d",
+              "parentUUID": "5dbd2897-c5e6-4604-91b6-cd0853612de0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Basic example #2",
+              "fullTitle": "Background Section Basic example #2",
+              "timedOut": null,
+              "duration": 17,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (backgroundSection) {\n  backgroundSection.steps.forEach(step => stepTest.call(this, step));\n}\nscenario.steps.forEach(step => stepTest.call(this, step));",
+              "err": {},
+              "uuid": "e11484a0-2b14-40d8-be52-03afd11b92ab",
+              "parentUUID": "5dbd2897-c5e6-4604-91b6-cd0853612de0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2ee9b7e4-d00d-4530-b342-4a23fa6a547d",
+            "e11484a0-2b14-40d8-be52-03afd11b92ab"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 116,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.1.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "Counter.feature",
+        "saveHtml": false,
+        "saveJson": true,
+        "useInlineDiffs": false
+      },
+      "version": "4.0.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "./cypress/reports",
+        "reportFilename": "Counter.feature",
+        "reportTitle": "Counter.feature",
+        "reportPageTitle": "Counter.feature",
+        "overwrite": true,
+        "showPassed": false,
+        "showFailed": true,
+        "enableCode": true,
+        "inline": true,
+        "html": false,
+        "json": true
+      },
+      "version": "4.0.0"
+    }
+  }
+}
