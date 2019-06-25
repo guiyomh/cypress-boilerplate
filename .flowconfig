@@ -1,0 +1,25 @@
+[ignore]
+<PROJECT_ROOT>/node_modules/*
+.*/coverage/.*
+
+[include]
+
+[libs]
+<PROJECT_ROOT>/flow-typed/**/*
+<PROJECT_ROOT>/flow-typed/global.js
+
+[lints]
+
+[options]
+include_warnings=true
+module.file_ext=.scss
+module.name_mapper='^\(.*\)\.scss$' -> 'CSSModule'
+module.name_mapper='^\(.*\)\.json$' -> 'JSONModule'
+module.ignore_non_literal_requires=true
+module.system=haste
+module.file_ext=.js
+module.file_ext=.scss
+module.file_ext=.jsx
+module.file_ext=.json
+
+[strict]

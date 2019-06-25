@@ -1,3 +1,4 @@
+// @flow
 // Copyright 2019 Guillaume Camus
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +15,7 @@
 
 const escapeRegExp = text => text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 
-const addContext = (report, screenshots, videoUrl) => {
+const addContext = (report: Object, screenshots: Array<string>, videoUrl: string): Object => {
   const getTests = t => t.tests || [];
   const getSuites = t => t.suites || [];
 

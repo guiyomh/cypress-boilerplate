@@ -1,3 +1,4 @@
+// @flow
 /* eslint-disable no-console */
 // Copyright 2019 Guillaume Camus
 //
@@ -17,6 +18,7 @@ const {
   of,
   throwError,
   defer,
+  Observable,
 } = require('rxjs');
 const {
   flatMap,
@@ -71,8 +73,8 @@ const addCucumber = require('./addCucumber');
 
 
 const flatten = a => [].concat(...a);
-const getVideoPath = filePath => path.resolve(__dirname, `videos_${path.basename(filePath, path.extname(filePath))}`);
-const getScreenshotPath = filePath => path.resolve(__dirname, `screenshots_${path.basename(filePath, path.extname(filePath))}`);
+const getVideoPath = (filePath: string): string => path.resolve(__dirname, `videos_${path.basename(filePath, path.extname(filePath))}`);
+const getScreenshotPath = (filePath: string): string => path.resolve(__dirname, `screenshots_${path.basename(filePath, path.extname(filePath))}`);
 
 const files = flatten(
   (argv._.length ? argv._ : ['**/*.{spec.js,feature}']).map(f => glob.sync(path.resolve(__dirname, 'integration', f))),
@@ -91,7 +93,7 @@ if (files.length === 0) {
 console.log(chalk.bold.green('Running test files:'));
 console.log(files.map(f => path.relative(__dirname, f)).join('\n'));
 
-const getReporterOptions = filename => ({
+const getReporterOptions = (filename: string): Object => ({
   reporterEnabled: 'mocha-junit-reporters, mochawesome',
   mochaJunitReportersReporterOptions: {
     mochaFile: 'cypress/reports/junit/test_results[hash].xml',
@@ -112,7 +114,7 @@ const getReporterOptions = filename => ({
   },
 });
 
-const getConfig = file => ({
+const getConfig = (file: string): Object => ({
   spec: file,
   browser: argv.browser,
   config: {
@@ -137,7 +139,7 @@ fs.mkdirsSync(path.resolve(__dirname, 'reports', 'junit'));
 fs.mkdirsSync(path.resolve(__dirname, 'reports', 'videos'));
 fs.mkdirsSync(path.resolve(__dirname, 'reports', 'screenshots'));
 
-const cypressRun = file => cypress.run(getConfig(file)).then((results) => {
+const cypressRun = (file: string) => cypress.run(getConfig(file)).then((results) => {
   if (results.totalTests === undefined) {
     // no results were run - probably an error messages
     throw results;
@@ -178,7 +180,7 @@ const cypressRun = file => cypress.run(getConfig(file)).then((results) => {
   return json;
 });
 
-const runSpec = file => defer(() => cypressRun(file))
+const runSpec = (file: string): Observable<any> => defer(() => cypressRun(file))
   .pipe(retry(retries))
   .pipe(
     catchError((error) => {
@@ -189,7 +191,7 @@ const runSpec = file => defer(() => cypressRun(file))
     }),
   );
 
-const combineReports = (reports) => {
+const combineReports = (reports: Object): void => {
   const options = Object.assign(getReporterOptions('UI Test Results').mochawesomeReporterOptions, {
     saveJson: true,
     reportFilename: 'index',

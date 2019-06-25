@@ -1,8 +1,10 @@
 module.exports = {
+  "parser": "babel-eslint",
   "plugins": [
     "cypress",
     "chai-friendly",
     "jest",
+    "flowtype",
   ],
   "env": {
     "browser": true,
@@ -12,7 +14,8 @@ module.exports = {
   },
   "extends": [
     "airbnb-base",
-    "plugin:cypress/recommended"
+    "plugin:cypress/recommended",
+    "plugin:flowtype/recommended",
   ],
   "globals": {
     "Atomics": "readonly",
