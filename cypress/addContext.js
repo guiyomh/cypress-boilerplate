@@ -11,9 +11,23 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+/**
+ * @module addContext
+ */
 
+/**
+ * Prepare a string to be use in a regular expression by escaping the specials characters.
+ * @param {string} text the string to escape
+ * @example escapeRegExp('http://www.cypress.io') // return 'http:\/\/www\.cypress\.io'
+ */
 const escapeRegExp = text => text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 
+/**
+ * Add in each tests a context with screenshot and video links
+ * @param {object} report a mocha report object
+ * @param {Array.<string>} screenshots a list of screenshoot's path
+ * @param {string|null} videoUrl path to the video
+ */
 const addContext = (report, screenshots, videoUrl) => {
   const getTests = t => t.tests || [];
   const getSuites = t => t.suites || [];
