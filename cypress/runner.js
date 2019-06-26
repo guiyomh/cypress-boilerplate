@@ -123,8 +123,8 @@ const getConfig = file => ({
     viewportWidth: parseInt(argv.width, 10),
     viewportHeight: parseInt(argv.height, 10),
     chromeWebSecurity: false,
-    video: true,
-    trashAssetsBeforeRuns: false,
+    video: argv.browser === 'electron',
+    trashAssetsBeforeRuns: true,
   },
   env: {
   },

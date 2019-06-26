@@ -12,7 +12,7 @@ const url = 'https://google.com';
  */
 Given('I open Google page', () => {
   cy.visit(url).then(() => {
-    cy.screenshot();
+    cy.screenshot('google homepage');
   });
 });
 
@@ -25,7 +25,5 @@ Given('I open Google page', () => {
  */
 Given('I search {string}', (term) => {
   cy.get('input[name=q]').type(term);
-  cy.contains('chance').click().then(() => {
-    cy.screenshot();
-  });
+  cy.contains('chance').click();
 });

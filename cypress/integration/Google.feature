@@ -1,14 +1,25 @@
 Feature: The search engine
 
-    I want to open a search engine page
+        As a user
+        I want to open a search engine page
+        And search term
 
-    @focus
+    Background:
+        Given I open Google page
+
     Scenario: Opening a search engine page
-        Given I open Google page
-        Then I see "Google" in the title
+        Given I see "Google" in the title
+        And I compare snapshot "google"
 
-    @focus
-    Scenario: I search the term cypress in google
-        Given I open Google page
-        And I search "cypress.io"
+    Scenario: I search the term cypress.io in google
+        Given I search "cypress.io"
         Then I see "End to End" in the title
+
+    Scenario Outline: I search a <term> in google
+        Given I search "<term>"
+        Then I see "<keyword>" in the title
+        Examples:
+            | term         | keyword    |
+            | cypress.io   | End to End |
+            | Nightwatchjs | End-to-End |
+            | Jest         | Testing    |
